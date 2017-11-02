@@ -116,7 +116,7 @@ spark-submit --class com.getstat.analysis.Main --master yarn \
 
 #### 1.3 Cloudera Environment working:
 
-I create a Cloudera hadoop environment working using cluster with 1 Server NameNode and 3 server Datanode.
+I create a Cloudera hadoop environment working using cluster with 1 Server NameNode and 2 server Datanode.
 
 To see the environment update your /etc/hosts and add the lines below:
 
