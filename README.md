@@ -138,6 +138,7 @@ password: admin
 Question 1:
 
 -- Get the URL that be part of TOP 10 and how many times this URL appear in the top 10
+
 Select t.* from ( select URL, count(0) as total from stat_csv_temp
 where Rank <= 10
 group by URL ) t order by t.total desc
@@ -145,7 +146,9 @@ group by URL ) t order by t.total desc
 Question 2:
 
 -- With this Select it's possible get by URL all the Keyword changes by Date
+
 -- ROW: www.getstat.com | [{CrawlDate: "01-01-2017", Keyword: "search word"}]
+
 
 Select t.URL, collect_list(struct(t.CrawlDate, t.Keyword)) as list_items from ( 
 	Select URL, CrawlDate, Keyword, count(0) as total from stat_csv_temp 
@@ -155,6 +158,7 @@ order by URL, CrawlDate
 
 Question 3:
 -- With this Select we get all the Keywords by Market, Location and Device
+
 Select * from (
 	Select Keyword, Market, Location, Device, CrawlDate, count(0) as total from stat_csv_temp
 	where Device in ('smartphone', 'desktop')
