@@ -165,6 +165,14 @@ Select * from (
     group by Keyword, Market, Location, Device, CrawlDate
 ) t order by t.CrawlDate
 
+-- After in Hue you can get the RANK based on Keyword, Market, device and location with this SQL in Hive:
+
+Select t.*, rank() over (ORDER BY t.tot DESC) as RANKING from (
+    Select tt.keyword, tt.market, tt.device, tt.location, count(0) as tot
+    FROM stat.stat_question_three tt
+    group by tt.keyword, tt.market, tt.device, tt.location
+) t;
+
 ## 3.PPT Presentation + Other Design Solutions
 
 I created a presentation where I show how to solve the problem passed by STAT, as I show other alternatives to solve the problem like:
