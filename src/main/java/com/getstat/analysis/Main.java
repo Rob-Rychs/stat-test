@@ -88,7 +88,8 @@ public class Main {
     			"	group by Keyword, Market, Location, Device, CrawlDate " +
     			") t order by t.CrawlDate");
     	
-    	
+    	sc.stop();
+    	sc.close();
 	}
 	
 }
