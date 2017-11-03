@@ -170,6 +170,8 @@ Select * from (
 Select t.*, rank() over (ORDER BY t.tot DESC) as RANKING from (
     Select tt.keyword, tt.market, tt.device, tt.location, count(0) as tot
     FROM stat.stat_question_three tt
+    where tt.device = 'smartphone'
+    and tt.market = 'US-en'
     group by tt.keyword, tt.market, tt.device, tt.location
 ) t;
 
